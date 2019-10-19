@@ -4,7 +4,7 @@
 
 ```bash
 git init --bare $HOME/.myconfig
-alias config="usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
+alias config="git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
 config config status.showUntrackedFiles no
 ```
 
@@ -12,7 +12,7 @@ config config status.showUntrackedFiles no
 
 ```bash
 git clone --bare [repo-url] $HOME/.myconfig
-alias config="usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
+alias config="git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
 config checkout
 ```
 
