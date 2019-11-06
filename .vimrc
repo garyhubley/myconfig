@@ -54,4 +54,4 @@ set updatetime=100
 "Turn off noises!
 set belloff=all
 
-
+nnoremap <C-N> :NERDTreeToggle <CR>
