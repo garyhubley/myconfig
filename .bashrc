@@ -116,4 +116,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="/home/$USER/bin:$PATH"
+bind 'set bell-style none'
