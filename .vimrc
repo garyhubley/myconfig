@@ -55,3 +55,10 @@ set updatetime=100
 set belloff=all
 
 nnoremap <C-N> :NERDTreeToggle <CR>
+
+
+nnoremap <UP> <nop>
+nnoremap <DOWN> <nop>
+nnoremap <LEFT> <nop>
+nnoremap <RIGHT> <nop>
+
