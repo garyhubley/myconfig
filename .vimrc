@@ -8,6 +8,7 @@ syntax on
 let mapleader = ' '
 
 "Turn on line numbers
+set rnu
 set nu
 
 "Map F3 to toggle line numbers
@@ -42,7 +43,6 @@ set hlsearch
 "remap ; to : in normal mode
 nnoremap ; :
 
-
 set title titlestring=
 
 "Disable expand tabs for make files
@@ -54,8 +54,29 @@ set updatetime=100
 "Turn off noises!
 set belloff=all
 
+" flash the line that contains the cursor
+map K :set cursorline<CR>:set cursorcolumn<CR>:sleep 500m<CR>:set nocursorline<CR>:set nocursorcolumn<CR>
+
+" flash the cursor position after every search
+map n nK
+map N NK
+map # #K
+map * *K
+
+" use bright yellow for the cursor location
+hi CursorLine ctermbg=yellow guibg=yellow
+hi CursorColumn ctermbg=yellow guibg=yellow
+
 nnoremap <C-N> :NERDTreeToggle <CR>
 
+nnoremap th  :tabfirst<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
 
 nnoremap <UP> <nop>
 nnoremap <DOWN> <nop>
