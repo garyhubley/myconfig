@@ -17,6 +17,10 @@ nmap <F3> :set nu! <CR>
 "Map to toggle relative line numbers
 nmap <leader><F3> :set rnu! <CR>
 
+"Ability to insert newline below or above quickly
+nmap <leader>o o<esc>
+nmap <leader>O O<esc>
+
 "Set tabs to n spaces
 set tabstop=4
 
@@ -42,6 +46,9 @@ set hlsearch
 
 "remap ; to : in normal mode
 nnoremap ; :
+
+" Match Y with the behaviour of C and D
+nnoremap Y y$
 
 set title titlestring=
 
@@ -83,3 +90,4 @@ nnoremap <DOWN> <nop>
 nnoremap <LEFT> <nop>
 nnoremap <RIGHT> <nop>
 
+map <C-y> :!clear && /home/gary/projects/cpp/pitchAdapter/cmd.sh<CR>
