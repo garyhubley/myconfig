@@ -1,4 +1,4 @@
 alias cdcpp='cd ~/Documents/Projects/C++'
-alias config='git --git-dir=/home/gary/.myconfig/ --work-tree=/home/gary'
+alias config="git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
 alias cf='clang-format'
 
