@@ -91,3 +91,9 @@ nnoremap <LEFT> <nop>
 nnoremap <RIGHT> <nop>
 
 map <C-y> :!clear && /home/gary/projects/cpp/pitchAdapter/cmd.sh<CR>
+
+" Auto format on buffer write 
+let g:clang_format#auto_format=1
+
+" Update markdown preview on buffer write or exit insert mode
+let g:mkdp_refresh_slow=1
