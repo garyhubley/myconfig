@@ -12,3 +12,10 @@
 	whitespace = fix
 [color "diff"]
 	whitespace = blue reverse
+[cola]
+	spellcheck = false
+	blameviewer = git gui blame
+[gui]
+	editor = vim
+[diff]
+	tool = vimdiff

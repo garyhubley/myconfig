@@ -14,7 +14,6 @@ alias null='/dev/null'
 alias home='cd ~'
 alias root='cd /'
 alias dtop='cd ~/desktop'
-alias cpp='cd ~/projects/cpp'
 alias o='xdg-open'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -25,3 +24,19 @@ alias bashrc='vim ~/.bashrc'
 alias bashalias='vim ~/.bash_aliases'
 alias bashprofile='vim ~/.bash_profile'
 alias loadbash='source ~/.bashrc'
+
+mkcdd() {
+    mkdir -p $1 && cd $1
+}
+
+cpp() { 
+    cd /home/gary/projects/cpp/$1
+}
+
+update() {
+    echo "Starting update..."
+    sudo apt update -qq
+    sudo apt dist-upgrade -y
+    sudo apt autoremove -y
+    echo "Update complete!"
+}
