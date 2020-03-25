@@ -121,3 +121,7 @@ if ! shopt -oq posix; then
 fi
 
 bind 'set bell-style none'
+
+if [ -d ~/bin ]; then 
+    PATH+=:$HOME/bin
+fi
