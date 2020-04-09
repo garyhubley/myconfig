@@ -4,7 +4,7 @@
 
 ```bash
 git init --bare $HOME/.myconfig
-alias config="git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
+alias myconfig="git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
 config config status.showUntrackedFiles no
 ```
 
