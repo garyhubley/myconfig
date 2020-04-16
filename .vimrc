@@ -59,7 +59,7 @@ autocmd FileType make setlocal noexpandtab
 set updatetime=100
 
 "Turn off noises!
-set belloff=all
+set visualbell
 
 " flash the line that contains the cursor
 map K :set cursorline<CR>:set cursorcolumn<CR>:sleep 500m<CR>:set nocursorline<CR>:set nocursorcolumn<CR>
