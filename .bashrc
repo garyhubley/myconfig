@@ -122,6 +122,11 @@ fi
 
 bind 'set bell-style none'
 
-if [ -d ~/bin ]; then 
+if [ -d $HOME/bin ]; then 
     PATH+=:$HOME/bin
 fi
+
+if [ -d $HOME/scripts ]; then 
+    PATH+=:$HOME/scripts
+fi
+
