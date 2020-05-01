@@ -55,6 +55,9 @@ set title titlestring=
 "Disable expand tabs for make files
 autocmd FileType make setlocal noexpandtab
 
+"Enable C++ syntax highlighting for ino files
+autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
+
 "Refresh vim every 100ms
 set updatetime=100
 
