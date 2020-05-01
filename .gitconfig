@@ -11,6 +11,7 @@
 [core]
 	whitespace = fix
 	editor = vim
+	autocrlf = true
 [color "diff"]
 	whitespace = blue reverse
 [cola]
