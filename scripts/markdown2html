@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Convert a markdown file given by "$1" into an HTML file
+# --------------------------------------------------------
+
+filename="$1";
+filename="${filename%.*}";
+
+echo -e "Output file name is: $filename.html\n\n"
+
+echo -e "<head>\n" > "$filename.html"
+echo -e "<meta charset=""UTF-8"">\n" >> "$filename.html"
+echo -e "</head>\n" >> "$filename.html"
+echo -e "<body>\n" >> "$filename.html"
+
+markdown --html4tags "$1" >> "$filename".html
+
+echo -e "\n</body>\n" >> "$filename.html"
+
+exit

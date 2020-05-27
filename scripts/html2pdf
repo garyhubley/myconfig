@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Convert a HTML file given by "$@" into a PDF file
+# --------------------------------------------------
+
+inputfile=$@ ;
+longfilename="${inputfile##*/}" ;
+echo -e "\n\n filename = $longfilename \n" ;
+
+filename="${longfilename%.*}" ;
+echo -e " filename without extension = $filename \n\n" ;
+
+
+wkhtmltopdf --margin-bottom 20mm --margin-top 20mm --margin-left 20mm  --margin-right 20mm  --minimum-font-size 12  --user-style-sheet file:///home/peter/.user_style_sheet.css  "$inputfile" "$filename.pdf"
+
+exit
