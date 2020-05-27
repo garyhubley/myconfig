@@ -44,9 +44,6 @@ call matchadd('ColorColumn', '\%81v', 100)
 "Highlight all search matches
 set hlsearch
 
-"remap ; to : in normal mode
-nnoremap ; :
-
 " Match Y with the behaviour of C and D
 nnoremap Y y$
 
