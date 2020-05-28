@@ -1,0 +1,105 @@
+#! /usr/bin/env bash
+
+# List of all the colors to make things easier to read. 
+# foreground
+black="\[\033[0;30m\]"
+red="\[\033[0;31m\]"
+green="\[\033[0;32m\]"
+yellow="\[\033[0;33m\]"
+blue="\[\033[0;34m\]"
+purple="\[\033[0;35m\]"
+cyan="\[\033[0;36m\]"
+white="\[\033[0;37m\]"
+
+bold_black="\[\033[1;30m\]"
+bold_red="\[\033[1;31m\]"
+bold_green="\[\033[1;32m\]"
+bold_yellow="\[\033[1;33m\]"
+bold_blue="\[\033[1;34m\]"
+bold_purple="\[\033[1;35m\]"
+bold_cyan="\[\033[1;36m\]"
+bold_white="\[\033[1;37m\]"
+
+#background
+background_black="\[\033[40m\]"
+background_red="\[\033[41m\]"
+background_green="\[\033[42m\]"
+background_yellow="\[\033[43m\]"
+background_blue="\[\033[44m\]"
+background_purple="\[\033[45m\]"
+background_cyan="\[\033[46m\]"
+background_white="\[\033[47m\]"
+
+reset="\[\033[0m\]"     # Text Reset]'
+
+black_on_white="${black}${background_white}"
+yellow_on_white="${yellow}${background_white}"
+red_on_white="${red}${background_white}"
+red_on_black="${red}${background_black}"
+black_on_red="${black}${background_red}"
+white_on_red="${white}${background_red}"
+yellow_on_red="${yellow}${background_red}"
+
+short_pwd() {
+    cwd=$(pwd | \
+    sed "s#${HOME}#~#g" | \
+    perl -F/ -ane \
+    'print join( "/", map { $i++ < @F - 1 ?  substr $_,0,1 : $_ } @F)')
+    echo -n $cwd
+}
+
+prefix="\n${bold_green}\u@\h";
+separator="${white}:";
+#curDirectory="${bold_blue}\$(short_pwd)"
+curDirectory="${bold_blue}\w"
+ending="\[\033[00m\]\n\$ ";    # <NL>$ in white 
+cbranch() {
+    git rev-parse --abbrev-ref HEAD 2> /dev/null
+}
+
+num_modified_files() {
+    local git_status="$(git status --porcelain 2> /dev/null)"
+    [ ! -z "${git_status}" ] && echo -n "M:" && echo "${git_status}" | grep " M" | wc -l 2> /dev/null
+}
+
+number_of_untracked_files() { 
+    local git_status="$(git status --porcelain 2> /dev/null)"
+    [ ! -z "${git_status}" ] && echo -n "U:" && echo "${git_status}" | grep "??" | wc -l 2> /dev/null
+}
+
+num_staged_files() {
+    local git_status="$(git status --porcelain 2> /dev/null)"
+    local cached_adds=$(echo "${git_status}" | grep "A  " | wc -l) 
+    local cached_modifieds=$(echo "${git_status}" | grep "M  " | wc -l)
+    [ ! -z "${git_status}" ] && echo -n "S:" && echo "${cached_adds} + ${cached_modifieds}" | bc -l 2> /dev/null
+}
+
+SMILEY="${bold_white}:)"
+FROWNY="${bold_red}:("
+SELECT="if [ \$? = 0 ]; then echo \"${SMILEY}\"; else echo \"${FROWNY}\"; fi"
+
+# Throw it all together 
+PS1="${prefix}\
+${separator}\
+${curDirectory} \
+\`${SELECT}\` \
+${bold_yellow}\$(cbranch) \
+${bold_red}\$(num_staged_files) \
+${bold_cyan}\$(num_modified_files) \
+${bold_purple}\$(number_of_untracked_files) \
+${ending}"
+
+#if [ "$color_prompt" = yes ]; then
+#else
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac

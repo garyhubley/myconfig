@@ -23,9 +23,10 @@ alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
 alias bashalias='vim ~/.bash_aliases'
 alias bashprofile='vim ~/.bash_profile'
+alias tmuxconf='vim ~/.tmux.conf'
 alias loadbash='source ~/.bashrc'
 
-mkcdd() {
+mkcd() {
     mkdir -p $1 && cd $1
 }
 
@@ -50,4 +51,10 @@ docker-remove-cache() {
     docker kill $(docker ps -q)
     docker_clean_ps
     docker rmi $(docker images -a -q)
+}
+
+alias oneDriveDal='cd /mnt/d/Documents/DalOneDrive/OneDrive\ -\ Dalhousie\ University/'
+
+winopen() {
+    cmd.exe /C start $@
 }
