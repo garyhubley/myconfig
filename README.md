@@ -5,7 +5,7 @@
 ```bash
 git init --bare $HOME/.myconfig
 alias myconfig="git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
-config myconfig status.showUntrackedFiles no
+myconfig config status.showUntrackedFiles no
 ```
 
 ## Clone to new system
