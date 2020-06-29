@@ -5,15 +5,15 @@
 ```bash
 git init --bare $HOME/.myconfig
 alias myconfig="git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
-config config status.showUntrackedFiles no
+myconfig config status.showUntrackedFiles no
 ```
 
 ## Clone to new system
 
 ```bash
 git clone --bare [repo-url] $HOME/.myconfig
-alias config="git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
-config checkout
+alias myconfig="git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
+myconfig checkout
 ```
 
 ## Checkout a branch
