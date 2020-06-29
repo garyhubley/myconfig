@@ -11,7 +11,7 @@ alias null='/dev/null'
 
 alias root='cd /'
 alias dtop='cd ~/desktop'
-alias o='xdg-open'
+alias o='cmd.exe /C start'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -48,4 +48,8 @@ docker-remove-cache() {
     docker kill $(docker ps -q)
     docker_clean_ps
     docker rmi $(docker images -a -q)
+}
+
+cgrep() {
+    grep --color=always -Iirn --include=*c --include=*.h "$@" 
 }
