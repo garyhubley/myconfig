@@ -50,3 +50,6 @@ docker-remove-cache() {
     docker rmi $(docker images -a -q)
 }
 
+cgrep() {
+    grep --color=always -Iirn --include=*c --include=*.h "$@" 
+}
