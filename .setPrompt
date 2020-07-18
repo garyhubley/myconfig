@@ -52,7 +52,7 @@ prefix="\n${bold_green}\u@\h";
 separator="${white}:";
 #curDirectory="${bold_blue}\$(short_pwd)"
 curDirectory="${bold_blue}\w"
-ending="\[\033[00m\]\n\$ ";    # <NL>$ in white 
+ending="${bold_white}\n\$ ";    # <NL>$ in white 
 cbranch() {
     git rev-parse --abbrev-ref HEAD 2> /dev/null
 }
