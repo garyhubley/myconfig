@@ -8,6 +8,8 @@ case $- in
       *) return;;
 esac
 
+export EDITOR="vim"
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -61,7 +63,7 @@ source $HOME/.setPrompt
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -F --color=auto -1'
+    alias ls='ls -F --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -112,3 +114,6 @@ if [ -d $HOME/scripts ]; then
     PATH+=:$HOME/scripts
 fi
 
+if [ -f $HOME/.localVars ]; then 
+    source $HOME/.localVars
+fi
