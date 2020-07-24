@@ -18,6 +18,7 @@ alias o='xdg-open'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias -- -='cd -'
 
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
