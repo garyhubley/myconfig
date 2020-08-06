@@ -29,6 +29,9 @@ set shiftwidth=4
 "Highlight pairs of []{}""...
 set matchpairs+=<:>
 
+"Set folding based on syntax highlighting
+set fdm=syntax
+
 "use default clipboard
 set clipboard=unnamed
 

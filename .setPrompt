@@ -59,18 +59,18 @@ cbranch() {
 
 num_modified_files() {
     local git_status="$(git status --porcelain 2> /dev/null)"
-    [ ! -z "${git_status}" ] && echo -n "M:" && echo "${git_status}" | grep " M" | wc -l 2> /dev/null
+    [ ! -z "${git_status}" ] && echo -n "M:" && echo "${git_status}" | grep "^.M" | wc -l 2> /dev/null
 }
 
 number_of_untracked_files() { 
     local git_status="$(git status --porcelain 2> /dev/null)"
-    [ ! -z "${git_status}" ] && echo -n "U:" && echo "${git_status}" | grep "??" | wc -l 2> /dev/null
+    [ ! -z "${git_status}" ] && echo -n "U:" && echo "${git_status}" | grep "^??" | wc -l 2> /dev/null
 }
 
 num_staged_files() {
     local git_status="$(git status --porcelain 2> /dev/null)"
-    local cached_adds=$(echo "${git_status}" | grep "A  " | wc -l) 
-    local cached_modifieds=$(echo "${git_status}" | grep "M  " | wc -l)
+    local cached_adds=$(echo "${git_status}" | grep "^A.." | wc -l) 
+    local cached_modifieds=$(echo "${git_status}" | grep "^M.." | wc -l)
     [ ! -z "${git_status}" ] && echo -n "S:" && echo "${cached_adds} + ${cached_modifieds}" | bc -l 2> /dev/null
 }
 
