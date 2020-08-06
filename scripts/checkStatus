@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+for dir in ./*
+do
+	if [ -d "$dir" ]; then 
+		cd "$dir"
+		gitStatus=$(git status --porcelain 2>/dev/null)
+		[ "$gitStatus" != "" ] && { echo "$dir is dirty"; }
+		cd "$OLDPWD"
+	fi
+done
