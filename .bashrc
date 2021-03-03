@@ -58,7 +58,9 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-source $HOME/.setPrompt
+if [ -f $HOME/.setPrompt ]; then 
+	source $HOME/.setPrompt
+fi
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -117,3 +119,4 @@ fi
 if [ -f $HOME/.localVars ]; then 
     source $HOME/.localVars
 fi
+

@@ -38,8 +38,8 @@ set clipboard=unnamed
 "set colourscheme to slate
 colo slate
 
-"Expand tabs to spaces
-set expandtab
+"Always use tabs. :( 
+set noexpandtab
 
 "Highlight the 100th column 
 call matchadd('ColorColumn', '\%81v', 100)

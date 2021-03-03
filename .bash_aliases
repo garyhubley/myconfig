@@ -61,3 +61,9 @@ cgrep() {
 tgrep() {
     grep --color=always -Iirn --include=*.tex "$@" 
 }
+
+commitLogbook() {
+	git add current
+	git commit -m "updated logbook"
+	git push
+}
