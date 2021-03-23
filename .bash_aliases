@@ -1,10 +1,12 @@
 alias myconfig="git --git-dir=$HOME/.myconfig/ --work-tree=$HOME"
+alias gs='git status'
 alias cf='clang-format'
 
 alias q='exit'
 alias c='clear'
 alias h='history'
 alias cs='clear;ls'
+alias cgs='clear;gs'
 alias t='time'
 alias k='kill'
 alias null='/dev/null'
@@ -16,6 +18,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias -- -='cd -'
+
+alias lt="ll -t"
 
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
@@ -48,4 +52,18 @@ docker-remove-cache() {
     docker kill $(docker ps -q)
     docker_clean_ps
     docker rmi $(docker images -a -q)
+}
+
+cgrep() {
+    grep --color=always -Iirn --include=*.c --include=*.h "$@" 
+}
+
+tgrep() {
+    grep --color=always -Iirn --include=*.tex "$@" 
+}
+
+commitLogbook() {
+	git add current
+	git commit -m "updated logbook"
+	git push
 }

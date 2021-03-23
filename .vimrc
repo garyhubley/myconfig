@@ -36,7 +36,7 @@ set clipboard=unnamed
 colo slate
 
 "Expand tabs to spaces
-set expandtab
+set noexpandtab
 
 "Highlight the 100th column 
 call matchadd('ColorColumn', '\%81v', 100)
@@ -57,6 +57,9 @@ set updatetime=100
 
 "Turn off noises!
 set belloff=all
+
+" Look in parent directories for ctags file
+set tags=tags;/
 
 " flash the line that contains the cursor
 map K :set cursorline<CR>:set cursorcolumn<CR>:sleep 500m<CR>:set nocursorline<CR>:set nocursorcolumn<CR>
