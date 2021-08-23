@@ -21,6 +21,9 @@ nmap <leader><F3> :set rnu! <CR>
 nmap <leader>o o<esc>
 nmap <leader>O O<esc>
 
+" Move cursor to last space before 80th column
+nmap <leader>e 80\|F<Space>
+
 "Set tabs to n spaces
 set tabstop=4
 
@@ -54,6 +57,7 @@ set title titlestring=
 
 "Disable expand tabs for make files
 autocmd FileType make setlocal noexpandtab
+autocmd FileType py setlocal expandtab
 
 "Refresh vim every 100ms
 set updatetime=100
