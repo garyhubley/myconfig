@@ -55,7 +55,7 @@ docker-remove-cache() {
 }
 
 cgrep() {
-    grep --color=always -Iirn --include=*.c --include=*.h "$@" 
+    grep --color=auto -Iirn --include=*.c --include=*.h "$@" 
 }
 
 tgrep() {
@@ -66,4 +66,20 @@ commitLogbook() {
 	git add current
 	git commit -m "updated logbook"
 	git push
+}
+
+function isWinDir {
+	case $PWD/ in
+		/mnt/*) return $(true);;
+		*) return $(false);;
+	esac
+}
+
+function git {
+    if isWinDir
+	then
+		git.exe "$@"
+	else
+		/usr/bin/git "$@"
+	fi
 }
