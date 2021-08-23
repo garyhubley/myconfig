@@ -54,7 +54,7 @@ separator="${white}:";
 curDirectory="${bold_blue}\w"
 ending="${bold_white}\n\$ ";    # <NL>$ in white 
 cbranch() {
-    git rev-parse --abbrev-ref HEAD 2> /dev/null
+	echo $(git rev-parse --abbrev-ref HEAD 2> /dev/null)
 }
 
 num_modified_files() {
@@ -79,6 +79,13 @@ FROWNY="${bold_red}:("
 SELECT="if [ \$? = 0 ]; then echo \"${SMILEY}\"; else echo \"${FROWNY}\"; fi"
 
 # Throw it all together 
+#PS1="${prefix}\
+#${separator}\
+#${curDirectory} \
+#\`${SELECT}\` \
+#${bold_yellow}\$(cbranch) \
+#${ending}"
+
 PS1="${prefix}\
 ${separator}\
 ${curDirectory} \
