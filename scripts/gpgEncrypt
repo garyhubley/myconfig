@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+if [ $# != 3 ]; then
+    echo "Usage: "
+    echo "  gpgEncrypt.sh <output file> <recipient email> <input file>"
+    exit
+fi
+
+gpg --output $1 --encrypt --sign --armor --recipient $2 $3

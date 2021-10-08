@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Decrypt a file given by "$@"
+# -----------------------------
+
+inputfile="$@" ;
+filename="${inputfile%.*}" ;
+
+echo -e "\n Input file is:  '$inputfile'\n";
+echo -e " Output file is: '$filename'\n\n" ;
+
+
+gpg --pinentry-mode=loopback -d --output "$filename" "$inputfile"
+
+exit

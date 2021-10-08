@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Encrypt a file given by "$@"
+# -----------------------------
+
+inputfile="$@" ;
+filename="$inputfile.gpg" ;
+#filename="${inputfile%.gpg}" ;
+
+echo -e "\n Input file is:  '$inputfile'\n";
+echo -e " Output file is: '$filename'\n\n" ;
+
+gpg -e --output "$filename" "$inputfile"
+
+exit
+

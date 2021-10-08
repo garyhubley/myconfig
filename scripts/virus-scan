@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Virus Scanner script
+# ---------------------
+
+
+# Print help message to the terminal screen
+# ------------------------------------------
+
+if [[ (( "$1" == "" )) || (( "$1" == "-h" )) || (( "$1" == "--h" )) || (( "$1" == "-help" )) || (( "$1" == "--help" )) ]] ; then
+  echo -e "\nCommand syntax:  virus-scan directory\n" ;
+  echo -e "where \"directory\" is the pathname for the" ;
+  echo -e "directory to be scanned.  If you wish to scan" ;
+  echo -e "the current directory, use:\n" ;
+  echo -e "  virus-scan .\n\n" ;
+  echo -e "Output is sent to the terminal screen.\n\n" ;
+  exit
+
+
+# Go to correct directory
+# ------------------------
+
+else
+  input_dir="$1" ;
+fi
+
+
+
+# Perform virus scan.  Send output to the terminal screen.
+# ---------------------------------------------------------
+
+echo -e "\n\n Virus Scanning in progress ...\n\n";
+
+clamscan --stdout -v -r -i --max-filesize=3900M --max-scansize=3900M --max-files=1000000 --max-recursion=100 "$input_dir" ;
+
+echo -e "\n\n";
+
+exit
+
