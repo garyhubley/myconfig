@@ -1,0 +1,30 @@
+[user]
+	email = 
+	name = Gary Hubley
+[push]
+	default = simple
+[alias]
+	unstage = reset HEAD --
+	co = checkout
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	df = diff --ws-error-highlight=all
+[core]
+	whitespace = fix
+	editor = vim
+	autocrlf = input
+[color "diff"]
+	whitespace = blue reverse
+[cola]
+	spellcheck = false
+	blameviewer = git gui blame
+[gui]
+	editor = vim
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge --skip -- %f
+	process = git-lfs filter-process --skip
+	required = true
