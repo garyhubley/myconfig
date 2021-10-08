@@ -42,7 +42,7 @@ set clipboard=unnamed
 colo slate
 
 "Always use tabs. :( 
-set noexpandtab
+set expandtab
 
 "Highlight the 100th column 
 call matchadd('ColorColumn', '\%81v', 100)
