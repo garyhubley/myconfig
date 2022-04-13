@@ -240,3 +240,7 @@ fi
 if [ -f $HOME/.localVars ]; then 
 	source $HOME/.localVars
 fi
+
+if [ $(pwd) == "/c/WINDOWS/system32" ]; then 
+    cd /c/
+fi

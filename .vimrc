@@ -24,10 +24,9 @@ nmap <leader>O O<esc>
 " Move cursor to last space before 80th column
 nmap <leader>e 80\|F<Space>
 
-" "Set tabs to n spaces
-set tabstop=4
-"
-set shiftwidth=4
+" Set tabs to n spaces
+set tabstop=2
+set shiftwidth=2
 
 " "Highlight pairs of []{}""...
 set matchpairs+=<:>
@@ -41,11 +40,12 @@ set clipboard=unnamed
 "set colourscheme to slate
 colo slate
 
-"Always use tabs. :( 
+"Always use spaces. :( 
 set expandtab
 
-"Highlight the 100th column 
-call matchadd('ColorColumn', '\%81v', 100)
+"Highlight the 80th column 
+call matchadd('ColorColumn', '\%80v', 100)
+set tw=80
 
 "Highlight all search matches
 set hlsearch
@@ -95,6 +95,9 @@ nnoremap <LEFT> <nop>
 nnoremap <RIGHT> <nop>
 
 map <C-y> :!clear && /home/gary/projects/cpp/pitchAdapter/cmd.sh<CR>
+
+" Search for highlighted text using // from visual mode
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " Auto format on buffer write 
 let g:clang_format#auto_format=1

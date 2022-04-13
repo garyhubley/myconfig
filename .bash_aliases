@@ -20,6 +20,7 @@ alias ....='cd ../../..'
 alias -- -='cd -'
 
 alias lt="ll -t"
+alias lsdir="ls -1d .*/ */"
 
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
@@ -39,6 +40,10 @@ update() {
 	echo "Update complete!"
 }
 
+csgrep() {
+	grep --color=auto -Iirn --include=*.cs "$@" 
+}
+
 cgrep() {
 	grep --color=auto -Iirn --include=*.c --include=*.h "$@" 
 }
@@ -51,4 +56,8 @@ commitLogbook() {
 	git add current
 	git commit -m "updated logbook"
 	git push
+}
+
+findfile() {
+    find -iname "*$@*"
 }
