@@ -4,6 +4,13 @@ filetype plugin indent on
 "Turn on syntax highlighting
 syntax on
 
+"Function that formats the current file. Returns cursor to original position
+function FormatFile()
+  let cursor_pos = getpos('.')
+  :%!clang-format
+  call setpos('.', cursor_pos)
+endfunction
+
 "map <leader> to space 
 let mapleader = ' '
 
@@ -17,16 +24,19 @@ nmap <F3> :set nu! <CR>
 "Map to toggle relative line numbers
 nmap <leader><F3> :set rnu! <CR>
 
+"Map for clang format. Formats whole file
+nmap <leader>cf :call FormatFile() <CR>
+
 "Ability to insert newline below or above quickly
 nmap <leader>o o<esc>
 nmap <leader>O O<esc>
 
 " Move cursor to last space before 80th column
-nmap <leader>e 80\|F<Space>
+nmap <leader>e 100\|F<Space>
 
 " Set tabs to n spaces
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 
 " "Highlight pairs of []{}""...
 set matchpairs+=<:>
@@ -44,8 +54,8 @@ colo slate
 set expandtab
 
 "Highlight the 80th column 
-call matchadd('ColorColumn', '\%80v', 100)
-set tw=80
+call matchadd('ColorColumn', '\%100v', 100)
+set tw=100
 
 "Highlight all search matches
 set hlsearch
@@ -54,6 +64,9 @@ set hlsearch
 nnoremap Y y$
 
 set title titlestring=
+
+" Set End of Line char
+set listchars=eol:^,trail:!,tab:<-> 
 
 "Disable expand tabs for make files
 autocmd FileType make setlocal noexpandtab
@@ -104,3 +117,5 @@ let g:clang_format#auto_format=1
 
 " Update markdown preview on buffer write or exit insert mode
 let g:mkdp_refresh_slow=1
+
+
