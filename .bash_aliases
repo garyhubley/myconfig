@@ -59,5 +59,23 @@ commitLogbook() {
 }
 
 findfile() {
-    find -iname "*$@*"
+    find -iname "*$@*" -not -path "*.svn/*"
+}
+
+format() {
+    filename="$1"
+    
+    if [[ $# -eq 3 ]] 
+    then
+        startline=$2
+        #endline=$(($2 + $3))
+        endline=$3
+        cf -i --lines="$startline:$endline" $filename
+    else
+        cf -i $filename
+    fi
+}
+
+fb() {
+    start "$@"
 }
