@@ -229,18 +229,6 @@ fi
 
 bind 'set bell-style none'
 
-if [ -d $HOME/bin ]; then 
-	PATH+=:$HOME/bin
-fi
-
-if [ -d $HOME/scripts ]; then 
-	PATH+=:$HOME/scripts
-fi
-
-if [ -f $HOME/.localVars ]; then 
-	source $HOME/.localVars
-fi
-
 if [[ $(pwd) == "/c/WINDOWS" || $(pwd) == "/c/WINDOWS/system32" ]]; then 
     cd /c/
 fi

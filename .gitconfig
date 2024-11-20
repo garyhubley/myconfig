@@ -1,6 +1,6 @@
 [user]
 	email = 
-	name = Gary Hubley
+	name = hubleyg
 [push]
 	default = simple
 [alias]
@@ -11,7 +11,7 @@
 [core]
 	whitespace = fix
 	editor = vim
-	autocrlf = input
+	autocrlf = true
 [color "diff"]
 	whitespace = blue reverse
 [cola]
@@ -28,3 +28,16 @@
 	smudge = git-lfs smudge --skip -- %f
 	process = git-lfs filter-process --skip
 	required = true
+[init]
+	defaultBranch = main
+[http]
+	sslbackend = schannel
+[credential "helperselector"]
+	selected = manager-core
+[http "https://irytcalm.kse.ksegroup.net"]
+    sslVerify = false
+    proxy =
+[pull]
+	rebase = true
+[safe]
+	directory = C:/CodingProjects/pbkdf2/jtekt-pbkdf2-c

@@ -20,3 +20,12 @@ fi
 if [ -d "$HOME/bin" ] ; then
 	PATH="$HOME/bin:$PATH"
 fi
+
+if [ -d $HOME/scripts ]; then 
+	PATH="$HOME/scripts:$PATH"
+fi
+
+if [ -f $HOME/.localVars ]; then 
+	source $HOME/.localVars
+fi
+

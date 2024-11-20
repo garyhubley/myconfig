@@ -41,11 +41,11 @@ update() {
 }
 
 csgrep() {
-	grep --color=auto -Iirn --include=*.cs "$@" 
+	grep --color=always -Iirn --include=*.cs "$@" 
 }
 
 cgrep() {
-	grep --color=auto -Iirn --include=*.c --include=*.h "$@" 
+	grep --color=always -Iirn --include=*.c --include=*.h "$@" 
 }
 
 tgrep() {
@@ -78,4 +78,8 @@ format() {
 
 fb() {
     start "$@"
+}
+
+recent() {
+    ls -Art | tail -n 1
 }
