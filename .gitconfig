@@ -11,7 +11,7 @@
 [core]
 	whitespace = fix
 	editor = vim
-	autocrlf = true
+    autocrlf = input
 [color "diff"]
 	whitespace = blue reverse
 [cola]
@@ -32,12 +32,5 @@
 	defaultBranch = main
 [http]
 	sslbackend = schannel
-[credential "helperselector"]
-	selected = manager-core
-[http "https://irytcalm.kse.ksegroup.net"]
-    sslVerify = false
-    proxy =
 [pull]
 	rebase = true
-[safe]
-	directory = C:/CodingProjects/pbkdf2/jtekt-pbkdf2-c
